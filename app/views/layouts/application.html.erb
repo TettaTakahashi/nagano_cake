@@ -10,7 +10,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="flex-culumn vh-100">
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="">LOGO</a>
+          
+            <% if customer_signed_in? %>
+            <% else %>
+            <% end %>
+        </div>
+      </nav>
+    </header>
+    
     <%= yield %>
+    <footer></footer>
   </body>
 </html>

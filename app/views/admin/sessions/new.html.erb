@@ -1,16 +1,16 @@
-<div class="container d-flex">     
-  <div class="mx-auto">
-     
-      <h2>管理者ログイン</h2>
+<h2 class="mt-5" style="margin-left: 200px;">管理者ログイン</h2>
+  
+  <div class="container d-flex">     
+    <div class="mx-auto">
       
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.label :メールアドレス %><br />
+          <%= f.label :メールアドレス %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
       
         <div class="field">
-          <%= f.label :パスワード %><br />
+          <%= f.label :パスワード %>
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
       
@@ -28,5 +28,5 @@
       
       <%= render "admin/shared/links" %>
       
+    </div>
   </div>
-</div>
