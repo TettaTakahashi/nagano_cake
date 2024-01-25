@@ -11,14 +11,63 @@
   </head>
 
   <body class="flex-culumn vh-100">
-    <header>
+    <header class="border-bottom">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="">LOGO</a>
+            <h1 class="navbar-brand">LOGO</h1>
           
+            <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
+            <li>
+              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+                マイページ
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+                商品一覧
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+                カート
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to destroy_customer_session_path, method: :delete, class:"btn btn-outline-secondary" do %>
+                ログアウト
+              <% end %>
+            </li>
             <% else %>
+            <li>
+              <%= link_to homes_about_path, class:"btn btn-outline-secondary" do %>
+                About
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+                商品一覧
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to new_customer_registration_path, class:"btn btn-outline-secondary" do %>
+                新規登録
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to new_customer_session_path, class:"btn btn-outline-secondary" do %>
+                ログイン
+              <% end %>
+            </li>
             <% end %>
+            </ul>
+            
         </div>
       </nav>
     </header>
