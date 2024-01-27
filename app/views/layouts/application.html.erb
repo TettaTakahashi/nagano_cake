@@ -41,6 +41,36 @@
                 ログアウト
               <% end %>
             </li>
+            <% elsif admin_signed_in?%>
+            <li>
+              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+                商品一覧
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+                会員一覧
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+                注文履歴一覧
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+                ジャンル一覧
+              <% end %>
+            </li>
+            &emsp;
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete, class:"btn btn-outline-secondary" do %>
+                ログアウト
+              <% end %>
+            </li>
             <% else %>
             <li>
               <%= link_to homes_about_path, class:"btn btn-outline-secondary" do %>
@@ -49,7 +79,7 @@
             </li>
             &emsp;
             <li>
-              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+              <%= link_to public_items_path, class:"btn btn-outline-secondary" do %>
                 商品一覧
               <% end %>
             </li>
