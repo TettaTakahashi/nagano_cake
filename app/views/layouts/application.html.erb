@@ -19,7 +19,7 @@
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <li>
-              <%= link_to root_path, class:"btn btn-outline-secondary" do %>
+              <%= link_to public_customer_path(current_customer.id), class:"btn btn-outline-secondary" do %>
                 マイページ
               <% end %>
             </li>
