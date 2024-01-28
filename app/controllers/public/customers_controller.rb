@@ -6,5 +6,9 @@ class Public::CustomersController < ApplicationController
     
   end
   
+  def edit
+    @customer=Customer.find(current_customer.id)
+  end
+  
   
 end
