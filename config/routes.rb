@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get 'homes/about'
   
+  
  
   namespace :public do
     resources :items, only: [:index] 
-    resources :customers, only: [:show, :edit]
+    resources :customers, only: [:show, :edit, :update]
+    get 'customers/confirm_withdraw'
   end
   
   namespace :admin do
