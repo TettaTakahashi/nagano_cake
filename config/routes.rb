@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   
   
  
-  namespace :public do
+  scope module: :public do
     resources :items, only: [:index] 
-    resources :customers, only: [:show, :edit, :update]
-    get 'customers/confirm_withdraw'
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
+    get 'customers/confirm_withdraw'=> 'customers#confirm_withdraw'
   end
   
   namespace :admin do

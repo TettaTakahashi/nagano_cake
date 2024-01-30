@@ -2,7 +2,7 @@
   <div class="text-left">
       <h3 class="mt-5 bg-light d-inline-block">会員情報編集</h3>
       
-      <%= form_with model: [:public, @customer] do |f| %>
+      <%= form_with model:@customer, url:customers_information_path do |f| %>
         <h5 class="mt-4">氏名</h5>
         <%= f.text_field :first_name %> 
         <%= f.text_field :last_name %>
@@ -24,7 +24,7 @@
         <%= f.text_field :email %><br>
         
         <%= f.submit "編集内容を保存", class:"btn btn-success mt-4", style: "width: 300px;" %>
-        <%= link_to public_customers_confirm_withdraw_path, class:"btn btn-danger mt-4 ml-5" do %>
+        <%= link_to customers_confirm_withdraw_path, class:"btn btn-danger mt-4 ml-5" do %>
         退会する
         <% end %>
       <% end %>
