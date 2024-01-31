@@ -20,7 +20,7 @@ class Public::SessionsController < Devise::SessionsController
   # end
   
   def after_sign_in_path_for(resource)
-    public_customer_path(current_customer.id)
+    customers_my_page_path
   end
   
   def after_sign_out_path_for(resource)
@@ -36,20 +36,20 @@ class Public::SessionsController < Devise::SessionsController
   
   private
   
-  def is_active
-    customer=Customer.find_by(is_active: params[:customer][:is_active])
-    customer.is_active
-  end
-  
   def customer_state
     customer=Customer.find_by(email: params[:customer][:email])
     return if customer.nil?
     return unless customer.valid_password?(params[:customer][:password])
     
-    if is_active == true
-    　return
-    else
-      redirect_to  new_customer_registration_path
+    def is_active
+    @customer=Customer.find_by(is_active: params[:customer][:is_active])
+    
+    
+      if @customer == true
+    　   super
+      else
+        redirect_to  new_customer_registration_path
+      end
     end
   end
   
