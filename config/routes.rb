@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   
   namespace :admin do
     get 'homes/top'
-    get 'genres' => 'genres#genres'
+    resources :genres, only: [:index, :create]
+    get 'genres' => 'genres#index'
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

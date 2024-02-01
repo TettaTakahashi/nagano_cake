@@ -15,7 +15,11 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container">
             <h1 class="navbar-brand">LOGO</h1>
-          
+            
+            <div style="margin-left: 150px;">
+              <%= flash[:notice] %>
+            </div>
+            
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <li>
