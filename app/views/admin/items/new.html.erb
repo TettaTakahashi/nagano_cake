@@ -1,0 +1,30 @@
+<div class="container d-flex">
+  <div class="justify-content-center">
+    
+    <h3 class="mt-5 bg-light d-inline-block">商品新規登録</h3>
+    
+    <%= form_with model: @item do |f| %>
+      <h5 class="field mt-5">商品画像</h5>
+      <%= f.file_field :image, accept: "image/*" %>
+      
+      <h5 class="field mt-2">商品名</h5>
+      <%= f.text_field :name, placeholder: '商品名' %>
+      
+      <h5 class="field mt-2">商品説明</h5>
+      <%= f.text_area :introduction, placeholder: 'ここに説明文を記述します' %>
+      
+      <h5 class="field mt-2">ジャンル</h5>
+      
+      <h5 class="field mt-2">税抜価格</h5>
+      
+      <h5 class="field mt-2">販売ステータス</h5>
+      <%= f.radio_button :is_active, "true" %>
+      <%= f.label :is_active_true, "販売中" %>
+      <%= f.radio_button :is_active, "false" %>
+      <%= f.label :is_active_false, "販売停止中" %>
+      <div class="actions">
+        <%= f.submit '新規登録', class:" btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

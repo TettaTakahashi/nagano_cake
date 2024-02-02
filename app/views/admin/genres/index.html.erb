@@ -5,7 +5,7 @@
     
     <%= form_with model:@genre, class:"row" do |f| %>
       <h5>ジャンル名</h5>
-      <%= f.text_field :genre_name, class:"mx-5" %>
+      <%= f.text_field :name, class:"mx-5" %>
       <%= f.submit '新規登録', class:"btn btn-success" %>
     <% end %>
     
@@ -22,7 +22,7 @@
         <% @genres.each do |genre| %>
           <tr>
             <td>
-              <%= name %>
+              <%= genre.name %>
             </td>
             <td>
               <%= link_to "編集する", root_path, class:"btn btn-success" %>
