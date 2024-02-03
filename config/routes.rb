@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :genres, only: [:index, :create]
+    resources :genres, only: [:index, :create, :edit, :update]
     get 'genres' => 'genres#index'
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
