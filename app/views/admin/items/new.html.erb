@@ -3,7 +3,7 @@
     
     <h3 class="mt-5 bg-light d-inline-block">商品新規登録</h3>
     
-    <%= form_with model: @item do |f| %>
+    <%= form_with model: @item, url:admin_items_path do |f| %>
       <h5 class="field mt-5">商品画像</h5>
       <%= f.file_field :image, accept: "image/*" %>
       
@@ -14,7 +14,7 @@
       <%= f.text_area :introduction, placeholder: 'ここに説明文を記述します' %>
       
       <h5 class="field mt-3">ジャンル</h5>
-      <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_display) %>
+      <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
       
       <h5 class="field mt-3">税抜価格</h5>
       <%= f.text_field :price, placeholder: '1000' %>円

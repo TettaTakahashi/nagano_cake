@@ -1,6 +1,3 @@
 class Item < ApplicationRecord
-    
-    def genre_display
-        name
-    end
+    has_one_attached :image
 end
