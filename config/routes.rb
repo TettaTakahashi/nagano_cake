@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update'
     get 'customers/confirm_withdraw'=> 'customers#confirm_withdraw'
     patch 'customers/withdraw' => 'customers#withdraw'
+    get 'items' => 'items#index'
+    get 'items/:id' => 'items#show'
   end
   
   namespace :admin do
