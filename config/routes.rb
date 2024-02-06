@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     get 'genres' => 'genres#index'
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    get '/' => 'homes#top'
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

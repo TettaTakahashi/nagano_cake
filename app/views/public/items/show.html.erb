@@ -12,9 +12,10 @@
         <h4>¥<%= @item.add_tax_price.to_s(:dalimited) %></h4>
         <p>(税込)</p>
         
-        <div class="d-flex mt-4">
-          
-        </div>
+      <div class="d-flex mt-4">
+        
+        <%= link_to "カートに入れる", root_path, class:"btn btn-success mt-4" %>
+      </div>
       </div>
     </div>
   <div>
