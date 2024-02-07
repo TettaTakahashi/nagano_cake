@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     patch 'customers/withdraw' => 'customers#withdraw'
     get 'items' => 'items#index'
     get 'items/:id' => 'items#show'
+    post 'cart_items' => 'cart_items#create'
   end
   
   namespace :admin do
