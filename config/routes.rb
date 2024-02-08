@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     get 'items' => 'items#index'
     get 'items/:id' => 'items#show'
     post 'cart_items' => 'cart_items#create'
+    get 'cart_items' => 'cart_items#index'
+    
   end
   
   namespace :admin do

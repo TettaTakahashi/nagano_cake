@@ -1,0 +1,35 @@
+<div class="container">
+    
+  <h2 class="mt-5 bg-light d-inline-block">ショッピングカート</h2>
+    
+  <table class="table">
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td>
+            <%= image_tag cart_item.item.image,size: "56x40" %>
+            <%= cart_item.item.name %>
+          </td>
+          <td>
+            <%= cart_item.item.add_tax_price.to_s(:dalimited) %>
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

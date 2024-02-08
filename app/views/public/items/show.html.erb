@@ -12,14 +12,17 @@
         <h4>¥<%= @item.add_tax_price.to_s(:dalimited) %></h4>
         <p>(税込)</p>
         
-      <div class="mt-4">
-        <%= form_with model:@item do |f| %>
-          <%= f.hidden_field :cart_item, :value => "amount" %>
-          <%= f.select :amount, *[1..10] %>
-        <% end %>
-        
-        <%= link_to "カートに入れる", root_path, class:"btn btn-success mt-4" %>
-      </div>
+        <div class="mt-4">
+          <%= form_with model:@cart_item, url: cart_items_path, method: :post do |f| %>
+            
+            <%= f.select :amount, *[1..10] %>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.hidden_field :customer_id, :value => current_customer.id %>
+            <!--<%#= f.hidden_field :cart_item, :value => "amount" %>-->
+            
+            <%= f.submit "カートに入れる", class:"btn btn-success mt-4" %>
+          <% end %>
+        </div>
       </div>
     </div>
   <div>
