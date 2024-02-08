@@ -13,6 +13,7 @@
       </tr>
     </thead>
     <tbody>
+      <% @sum=0 %>
       <% @cart_items.each do |cart_item| %>
         <tr>
           <td>
@@ -23,13 +24,32 @@
             <%= cart_item.item.add_tax_price.to_s(:dalimited) %>
           </td>
           <td>
-            
+            <%= form_with model:cart_item, url:cart_items_path(cart_item.id), local:true do |f| %>
+              <%= f.select :amount, *[1..10] %>
+              <%= f.submit "変更", class:"btn btn-success" %>
+            <% end %>
           </td>
           <td>
-            
+            <%= cart_item.subtotal %>
+          </td>
+          <td>
+            <%= link_to "削除する", cart_items_path(cart_item.id), method: :delete, "data-confirm" => "商品を削除しますか？", class:"btn btn-danger" %> 
           </td>
         </tr>
+        <% @sum+= cart_item.subtotal %>
       <% end %>
     </tbody>
   </table>
+  
+  
+  
+  <%= link_to "買い物を続ける", root_path, class:"btn btn-primary mt-3" %>
+  
+  <table class="table text-right">
+    <tr><th>合計金額</th><td><%= @sum %></td></tr> 
+  </table>
+  
+  <div class="text-center mt-5">
+    <%= link_to "情報入力に進む", root_path, class:"btn btn-success" %>
+  </div>
 </div>
