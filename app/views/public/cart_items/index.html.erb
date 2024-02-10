@@ -1,6 +1,9 @@
 <div class="container">
     
   <h2 class="mt-5 bg-light d-inline-block">ショッピングカート</h2>
+  <div class="text-right">
+    <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "dataconfirm" => "カートの商品をすべて削除しますか？", class:"btn btn-danger" %>
+  </div>
     
   <table class="table">
     <thead>
@@ -50,6 +53,6 @@
   </table>
   
   <div class="text-center mt-5">
-    <%= link_to "情報入力に進む", root_path, class:"btn btn-success" %>
+    <%= link_to "情報入力に進む", orders_new_path, class:"btn btn-success" %>
   </div>
 </div>
