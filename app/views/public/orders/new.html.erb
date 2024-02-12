@@ -2,5 +2,22 @@
     
   <h2 class="mt-5 bg-light d-inline-block">注文情報入力</h2>
   
-  
+  <%= form_with model:@order, url:orders_check_path do |f| %>
+    <h4 class="mt-4">支払方法</h4>
+    <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+    <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %><br>
+    <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+    <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer] %>
+    
+    
+    <h4 class="mt-4">お届け先</h4>
+    <%= f.radio_button :address, "customer_address" %>
+    <%= f.label :address, "ご自身の住所" %><br>
+    〒<%= current_customer.postal_code+"　"+current_customer.address %><br>
+    <%= current_customer.first_name+current_customer.last_name %><br>
+    
+    <duv class="d-flex justify-content-center">
+      <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
+    </div>
+  <% end %>
 </div>

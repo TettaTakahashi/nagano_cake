@@ -7,7 +7,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.string :address_name, null: false
       t.integer :total_price, null: false
       t.integer :postage, null: false
-      t.integer :method_of_payment, null: false
+      t.integer :payment_method, null: false
       t.integer :order_status, null: false
       
       t.timestamps

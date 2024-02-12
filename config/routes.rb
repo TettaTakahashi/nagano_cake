@@ -22,12 +22,10 @@ Rails.application.routes.draw do
     patch 'customers/withdraw' => 'customers#withdraw'
     get 'items' => 'items#index'
     get 'items/:id' => 'items#show'
-    post 'cart_items' => 'cart_items#create'
-    get 'cart_items' => 'cart_items#index'
-    patch 'cart_items/:id' => 'cart_items#update'
-    delete 'cart_items/:id' => 'cart_items#destroy'
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
-    get 'orders/new' => 'orders#new'
+    resources :cart_items
+    post 'orders/check' => 'orders#check'
+    resources :orders
     
   end
   
