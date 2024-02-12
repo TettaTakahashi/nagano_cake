@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
   end
   
   def check
-    
+    @cart_items=CartItem.all
   end
   
   private
