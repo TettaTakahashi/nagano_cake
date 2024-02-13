@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :cart_items
     post 'orders/check' => 'orders#check'
     resources :orders
-    resources :shipping_addresses, only: [:index, :create]
+    resources :shipping_addresses, only: [:index, :create, :destroy, :edit]
     
   end
   
