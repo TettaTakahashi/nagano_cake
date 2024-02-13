@@ -14,6 +14,7 @@ class Public::OrdersController < ApplicationController
   
   def check
     @cart_items=CartItem.all
+    @order=Order.new(order_params)
   end
   
   private
