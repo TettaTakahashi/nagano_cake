@@ -8,12 +8,22 @@ class Public::ShippingAddressesController < ApplicationController
   
   def create
       @address=ShippingAddress.new(address_params)
+      @address.customer_id=current_customer.id
       @address.save
       redirect_to shipping_addresses_path
   end
   
   def edit
-      
+      @address=ShippingAddress.find(params[:id])
+  end
+  
+  def update
+     @address=ShippingAddress.find(params[:id])
+     if @address=ShippingAddress.update(address_params)
+       redirect_to shipping_addresses_path
+     else
+       render :edit
+     end
   end
   
   def destroy

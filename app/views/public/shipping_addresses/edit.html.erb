@@ -1,0 +1,13 @@
+<div class="container">
+
+<h2 class="mt-5 bg-light d-inline-block">配送先編集</h2>
+
+<%= form_with model:@address, url:shipping_address_path(@address) do |f| %>
+  <table cellpadding="10">
+    <tr><th>郵便番号(ハイフンなし)</th><td><%= f.text_field :postal_code, placeholder: '0000000' %></td></tr>
+    <tr><th>住所</th><td><%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0' %></td></tr>
+    <tr><th>宛名</th><td><%= f.text_field :address_name, placeholder: '令和道子' %></td></tr>
+    <tr><th></th><td><%= f.submit "変更内容を保存", class:"btn btn-success" %></td></tr>
+  </table>
+<% end %>
+</div>
