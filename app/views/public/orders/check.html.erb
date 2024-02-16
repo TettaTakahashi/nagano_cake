@@ -50,5 +50,46 @@
      </div>
   </div>
   
-  
+  <%= form_with url: orders_path, method: :post do %>
+      <table>
+        <tr>
+          <th>
+            <h4 class="mt-4 mr-3">支払い方法</h4>
+          </th>
+          <td>
+            <% if @selected_payment_method == "credit_card" %>
+              クレジットカード
+            <% else %>
+            　　銀行振込
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <h4 class="mt-4 mr-3">お届け先</h4>
+          </th>
+          <td>
+            <%= @selected_address %>
+              
+            <%= hidden_field_tag 'order[payment_method]', @selected_payment_method %>
+            <%= hidden_field_tag 'order[address_type]', @address_type %>
+          
+            <% if @address_type == "shipping_address" %>
+              <%= hidden_field_tag 'order[shipping_address_id]', params[:order][:new_postal_code] %>
+            <% elsif @address_type == "new_address" %>
+              <%= hidden_field_tag 'order[new_postal_code]', params[:order][:new_postal_code] %>
+              <%= hidden_field_tag 'order[new_address]', params[:order][:new_address] %>
+              <%= hidden_field_tag 'order[new_name]', params[:order][:new_name] %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <%= submit_tag "注文を確定する", class: "btn btn-success" %>
+          </td>
+        </tr>
+      </table>
+  <% end %>
 </div>
