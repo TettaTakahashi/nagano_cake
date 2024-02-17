@@ -66,11 +66,11 @@ class Public::OrdersController < ApplicationController
        selected=Address.find(params[:order][:shipping_address_id])
        @order.postal_code=selected.postal_code
        @order.address=selected.address
-       @order.name=selected.name
+       @order.address_name=selected.name
      when "new_address"
        @order.postal_code=params[:order][:new_postal_code]
        @order.address=params[:order][:new_address]
-       @order.name=params[:order][:new_name]
+       @order.address_name=params[:order][:new_name]
      end
      
      if @order.save
