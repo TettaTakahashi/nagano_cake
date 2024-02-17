@@ -41,6 +41,7 @@ class Public::OrdersController < ApplicationController
      @order=Order.new
      @order.customer_id=current_customer.id
      @shipping_fee=800
+     @order.shipping_fee=@shipping_fee
      @cart_items=CartItem.where(customer_id: current_customer.id)
      any=[]
      @cart_items.each do |cart_item|
@@ -74,7 +75,7 @@ class Public::OrdersController < ApplicationController
      end
      
      if @order.save
-       if @order.status==0
+       if @order.order_status==0
          @cart_items.each do |cart_item|
            OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.price, amount: cart_item.amount, making_status: 0)
          end
