@@ -9,7 +9,7 @@ class Admin::OrdersController < ApplicationController
       
       any=[]
       @order.order_details.each do |order_detail|
-        any << order_detail.price*order_detail.amount
+        any << order_detail.item.add_tax_price*order_detail.amount
       end
       @order_details_price=any.sum
     

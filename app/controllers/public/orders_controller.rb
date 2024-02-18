@@ -11,7 +11,16 @@ class Public::OrdersController < ApplicationController
   end
   
   def show
+    @order=Order.find(params[:id])
+    @shipping_fee=800
     
+    any=[]
+    @order.order_details.each do |order_detail|
+      any << order_detail.item.add_tax_price*order_detail.amount
+    end
+    @order_details_price=any.sum
+    
+    @total_price=@shipping_fee+@order_details_price
   end
   
   def check
