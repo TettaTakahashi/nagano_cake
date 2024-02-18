@@ -13,6 +13,7 @@
     
     <tbody>
       <% @orders.each do |order| %>
+      <% @total_amount=0 %>
         <tr>
           <td>
             <%= link_to admin_order_path(order) do %>
@@ -20,10 +21,13 @@
             <% end %>
           </td>
           <td>
-            <%= order.address_name %>
+            <%= order.customer.first_name %><%= order.customer.last_name %>
           </td>
           <td>
-            
+            <% order.order_details.each do |order_detail| %>
+              <% @total_amount += order_detail.amount %>
+            <% end %>
+            <%= @total_amount %>
           </td>
         </tr>
       <% end %>

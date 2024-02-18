@@ -5,6 +5,15 @@ class Public::OrdersController < ApplicationController
     @order=Order.new
   end
   
+  def index
+    @customer=current_customer
+    @orders=@customer.orders
+  end
+  
+  def show
+    
+  end
+  
   def check
     @cart_items=CartItem.where(customer_id: current_customer.id)
     @shipping_fee=800
@@ -23,14 +32,14 @@ class Public::OrdersController < ApplicationController
       @selected_address=current_customer.postal_code+" "+current_customer.address+" "+current_customer.first_name+current_customer.last_name
     when "shipping_address"
       unless params[:order][:shipping_address_id] == ""
-        selected=Address.find(params[:order][:shipping_address_id])
-        @selected_address=selected.postal_code+" "+selected.address+" "+selected.name
+        selected=ShippingAddress.find(params[:order][:shipping_address_id])
+        @selected_address=selected.postal_code+" "+selected.address+" "+selected.address_name
       else
         render :new
       end
     when "new_address"
       unless params[:order][:new_postal_code] == "" && params[:order][:new_address] == "" && params[:order][:new_name] == ""
-        @selected_address=params[:order][:new_postal_code]+ " "+params[:order][:new_address]+" "+params[:order][:new_name]
+        @selected_address=params[:order][:new_postal_code]+ " "+params[:order][:new_address]+" "+params[:order][:new_address_name]
       else
         render :new
       end
