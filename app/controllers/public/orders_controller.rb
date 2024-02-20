@@ -3,6 +3,7 @@ class Public::OrdersController < ApplicationController
   
   def new
     @order=Order.new
+    @addresses=current_customer.shipping_addresses.all
   end
   
   def index
@@ -81,8 +82,8 @@ class Public::OrdersController < ApplicationController
        @order.address=current_customer.address
        @order.address_name=current_customer.first_name+current_customer.last_name
      when "shipping_address"
-       Address.find(params[:order][:shipping_address_id])
-       selected=Address.find(params[:order][:shipping_address_id])
+       ShippingAddress.find(params[:order][:shipping_address_id])
+       selected=ShippingAddress.find(params[:order][:shipping_address_id])
        @order.postal_code=selected.postal_code
        @order.address=selected.address
        @order.address_name=selected.name

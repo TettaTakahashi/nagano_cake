@@ -2,7 +2,8 @@ class Public::ShippingAddressesController < ApplicationController
   before_action :authenticate_customer!
   
   def index
-     @addresses=ShippingAddress.all
+     @customer=current_customer
+     @addresses=@customer.shipping_addresses
      @address=ShippingAddress.new
   end
   

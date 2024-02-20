@@ -19,7 +19,7 @@
     <div class="mt-4">
       <%= f.radio_button :address_type, [:shipping_address] %>
       <%= f.label :address_type, "登録済住所から選択" %><br>
-      <%= f.select :shipping_address_id, options_from_collection_for_select(ShippingAddress.all, :id, :address_display) %>
+      <%= f.collection_select :shipping_address_id, @addresses, :id, :address_display %>
     </div>
     
     <div class="mt-4">
