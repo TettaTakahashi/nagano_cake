@@ -86,7 +86,7 @@ class Public::OrdersController < ApplicationController
        selected=ShippingAddress.find(params[:order][:shipping_address_id])
        @order.postal_code=selected.postal_code
        @order.address=selected.address
-       @order.address_name=selected.name
+       @order.address_name=selected.address_name
      when "new_address"
        @order.postal_code=params[:order][:new_postal_code]
        @order.address=params[:order][:new_address]
